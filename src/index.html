@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <%= t.include("partials/_head.html") %>
+  </head>
+  <body>
+
+    <responsive-child>
+      <div class="outmost">
+        <div class="aspect-ratio-outer">
+          <div class="aspect-ratio-inner">
+            <leaflet-map lat="47.35" lng="-120.75">
+              <tile-layer></tile-layer>
+            </leaflet-map>
+          </div>
+        </div>
+
+        <div class="info">
+          <div class="year">1988</div>
+          <div class="desc">Presidential elections</div>
+        </div>
+
+        <div class="source">
+          <em>Sources: tktk</em>
+          <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
+        </div>
+      </div>
+    </responsive-child>
+
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
