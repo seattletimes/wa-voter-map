@@ -29,24 +29,39 @@ function getColor(p, m) {
        m >= .6 ? '#2b8cbe' :
        m >= .5 ? '#74a9cf' :
        m >= .4 ? '#a6bddb' :
-       m >= .3 ? '#d0d1e6' :
-       '#f1eef6' ;
+       '#d0d1e6';
   } else if (p == "R") {
     return m >= .7 ? '#b30000' :
        m >= .6 ? '#e34a33' :
        m >= .5 ? '#fc8d59' :
        m >= .4 ? '#fdbb84' :
-       m >= .3 ? '#fdd49e' :
-       '#fef0d9' ;
+       '#fdd49e';
   }
+  //   if (p == "D") {
+  //          return m >= .55 ? '#2b8cbe' :
+  //      m >= .5 ? '#74a9cf' :
+  //      '#bdc9e1' ;
+  // } else if (p == "R") {
+  //   return m >= .55 ? '#e34a33' :
+  //      m >= .5 ? '#fc8d59' :
+  //      '#fdcc8a' ;
+  // } else if (p == "T") {
+  //   return "white";
+  // }
 
 };
 
 function style(feature) {
   var party = feature.properties[year + "_Party"];
-  var margin = feature.properties[year + "_" + party];
+  var color;
+  if (party == "T") {
+    color = "#999";
+  } else {
+    var margin = feature.properties[year + "_" + party];
+    color = getColor(party, margin);
+  }
   return {
-    fillColor: getColor(party, margin),
+    fillColor: color,
     weight: 0.5,
     opacity: 1,
     color: 'white',

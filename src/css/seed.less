@@ -88,3 +88,36 @@
     display: block;
   }
 }
+
+.legend-label {
+  padding-top: 20px;
+  font-size: 13px;
+
+  @media @mobile {
+    display: none;
+  }
+}
+
+.legend {
+  font-family: @df-sans;
+  padding-top: 5px;
+  .display-flex;
+
+  @media @mobile {
+    display: none;
+  }
+}
+.swatch {
+  .flex(1);
+  height: 10px;
+
+  .number {
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 12px;
+    padding-top: 14px;
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
+  }
+}
