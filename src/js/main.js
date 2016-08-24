@@ -7,7 +7,7 @@ require("component-responsive-frame/child");
 require("component-responsive-frame/child");
 require("component-leaflet-map");
 
-var data = require("./presidential_votes_by_county.geo.json");
+var data = require("./presidential_vote_by_county.geo.json");
 
 var mapElement = document.querySelector("leaflet-map");
 var L = mapElement.leaflet;
@@ -20,7 +20,7 @@ map.boxZoom.disable();
 map.removeControl(map.zoomControl);
 map.dragging.disable();
 
-var year = 1988;
+var year = 1968;
 var delay;
 
 function getColor(p, m) {
@@ -84,7 +84,7 @@ var animate = function() {
     delay = 1500;
   }
   if (year == 2012) {
-    year = 1988;
+    year = 1968;
   } else {
     year += 4;
   }
