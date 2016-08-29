@@ -3,8 +3,6 @@
 // var track = require("./lib/tracking");
 
 require("component-responsive-frame/child");
-
-require("component-responsive-frame/child");
 require("component-leaflet-map");
 
 var data = require("./presidential_vote_by_county.geo.json");
@@ -25,19 +23,19 @@ var delay;
 
 function getColor(p, m) {
   if (p == "D") {
-    return '#045a8d';
-    // return m >= .7 ? '#045a8d' :
-    //    m >= .6 ? '#2b8cbe' :
-    //    m >= .5 ? '#74a9cf' :
-    //    m >= .4 ? '#a6bddb' :
-    //    '#d0d1e6';
+    // return '#045a8d';
+    return m >= .7 ? '#045a8d' :
+       m >= .6 ? '#2b8cbe' :
+       m >= .5 ? '#74a9cf' :
+       m >= .4 ? '#a6bddb' :
+       '#d0d1e6';
   } else if (p == "R") {
-    return '#b30000';
-    // return m >= .7 ? '#b30000' :
-    //    m >= .6 ? '#e34a33' :
-    //    m >= .5 ? '#fc8d59' :
-    //    m >= .4 ? '#fdbb84' :
-    //    '#fdd49e';
+    // return '#b30000';
+    return m >= .7 ? '#b30000' :
+       m >= .6 ? '#e34a33' :
+       m >= .5 ? '#fc8d59' :
+       m >= .4 ? '#fdbb84' :
+       '#fdd49e';
   }
   //   if (p == "D") {
   //          return m >= .55 ? '#2b8cbe' :
@@ -57,7 +55,7 @@ function style(feature) {
   var party = feature.properties[year + "_Party"];
   var color;
   if (party == "T") {
-    color = "#666";
+    color = "#AAA";
   } else {
     var margin = feature.properties[year + "_" + party];
     color = getColor(party, margin);
