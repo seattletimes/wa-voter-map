@@ -11,24 +11,29 @@
 
     <responsive-child>
 
+
       <div class="outmost">
 
-        <div class="aspect-ratio-outer">
+       <!--  <div class="aspect-ratio-outer">
           <div class="aspect-ratio-inner">
             <leaflet-map lat="47.35" lng="-120.75">
               <tile-layer></tile-layer>
             </leaflet-map>
           </div>
-        </div>
+        </div> -->
 
         <div class="info">
           <div class="year">1968</div>
         </div>
 
+
+        <div class="map"><%= t.include("./assets/normal.svg") %></div>
+
+
         <div class="legend-label">Presidential election results:</div>
         <div class="legend">
           <div class="swatch" style="background: #045a8d">
-            <div class="number">70% D</div>
+            <div class="number">> 70% D</div>
           </div>
           <div class="swatch" style="background: #2b8cbe">
             <div class="number">60%</div>
@@ -58,7 +63,7 @@
             <div class="number">60%</div>
           </div>
           <div class="swatch" style="background: #b30000">
-            <div class="number">70% R</div>
+            <div class="number">> 70% R</div>
           </div>
         </div>
 
@@ -68,6 +73,10 @@
 
       </div>
     </responsive-child>
+
+    <script>
+    var countyData = <%= JSON.stringify(csv.presidential_vote_by_county) %>;
+    </script>
 
     <script src="app.js" async></script>
     <% if (json.project.production) { %>
