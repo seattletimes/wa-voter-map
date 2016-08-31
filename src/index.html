@@ -11,7 +11,6 @@
 
     <responsive-child>
 
-
       <div class="outmost">
 
        <!--  <div class="aspect-ratio-outer">
@@ -27,8 +26,10 @@
         </div>
 
 
-        <div class="map"><%= t.include("./assets/normal.svg") %></div>
-
+        <div class="map">
+          <%= t.include("./assets/normal.svg") %>
+          <div class="tooltip"></div>
+        </div>
 
         <div class="legend-label">Presidential election results:</div>
         <div class="legend">

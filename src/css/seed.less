@@ -123,8 +123,25 @@
   }
 }
 
+.tooltip {
+  position: absolute;
+  display: none;
+  font-family: @df-sans;
+  background: @df-light-gray;
+  font-size: 13px;
+  border: 1px solid @df-off-white;
+  padding: 2px 5px;
+  font-weight: bold;
+
+  &.show {
+    display: block;
+  }
+}
+
 
 g, path, polyline, polygon {
+  cursor: pointer;
+  
   &.firstR, &.firstR path, &.firstR polygon {
     fill: #b30000;
   }
@@ -170,5 +187,6 @@ svg {
 }
 
 .map {
+  position: relative;
   text-align: center;
 }

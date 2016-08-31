@@ -3,6 +3,7 @@
 // var track = require("./lib/tracking");
 
 require("component-responsive-frame/child");
+var qsa = require("./lib/qsa.js");
 // require("component-leaflet-map");
 // var savage = require("savage-query");
 
@@ -140,4 +141,31 @@ function getClassName(p, m) {
   }
 };
 
+var tooltip = document.querySelector(".tooltip");
+var shapes = qsa(".cls-1");
+var map = document.querySelector(".map");
 
+shapes.forEach(function(s) {
+  var label = s.id.replace("_", " ");
+  s.addEventListener("mouseover", function() {
+    tooltip.innerHTML = label;
+    tooltip.classList.add("show");
+  })
+})
+
+map.addEventListener("mouseout", function() {
+  tooltip.classList.remove("show");
+});
+
+document.querySelector("svg").addEventListener("mousemove", function(event) {
+  var bounds = map.getBoundingClientRect();
+  var x = event.clientX - bounds.left;
+  var y = event.clientY - bounds.top;
+  if (x > bounds.width / 2) {
+    x -= tooltip.offsetWidth + 10;
+  } else {
+    x += 10;
+  }
+  tooltip.style.left = x+ "px";
+  tooltip.style.top = y + "px";
+})
