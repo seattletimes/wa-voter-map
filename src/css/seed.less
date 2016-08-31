@@ -95,6 +95,82 @@
   }
 }
 
+.label {
+  font-family: @df-sans;
+}
+
+.dot {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  color: @df-charcoal;
+  background: @df-charcoal;
+  border-radius: 50%;
+  font-family: @df-sans;
+  font-size: 12px;
+
+  @media @mobile {
+    font-size: 11px;
+    height: 5px;
+    width: 5px;
+  }
+
+  &:after {
+    margin-left: 10px;
+
+    @media @mobile {
+      margin-left: 6px;
+    }
+  }
+
+  &.seattle {
+    top: 39%;
+    left: 29%;
+    &:after {
+      content: "Seattle";
+    }
+  }
+  &.spokane {
+    top: 38%;
+    left: 91%;
+    &:after {
+      content: "Spokane";
+      margin-left: -58px;
+      @media @mobile {
+        margin-left: -50px;
+      }
+    }
+  }
+  &.tacoma {
+    top: 48%;
+    left: 28%;
+    &:after {
+      content: "Tacoma";
+    }
+  }
+  &.yakima {
+    top: 68%;
+    left: 52%;
+    &:after {
+      content: "Yakima";
+    }
+  }
+  &.kennewick {
+    top: 79%;
+    left: 69%;
+    &:after {
+      content: "Kennewick";
+    }
+  }
+  &.olympia {
+    top: 55%;
+    left: 22%;
+    &:after {
+      content: "Olympia";
+    }
+  }
+}
+
 .legend {
   font-family: @df-sans;
   padding-top: 5px;
@@ -141,7 +217,7 @@
 
 g, path, polyline, polygon {
   cursor: pointer;
-  
+
   &.firstR, &.firstR path, &.firstR polygon {
     fill: #b30000;
   }
