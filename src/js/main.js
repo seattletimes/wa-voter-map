@@ -148,7 +148,7 @@ var map = document.querySelector(".map");
 shapes.forEach(function(s) {
   var label = s.id.replace("_", " ");
   s.addEventListener("mouseover", function() {
-    tooltip.innerHTML = label;
+    tooltip.innerHTML = label + " County";
     tooltip.classList.add("show");
   })
 })
